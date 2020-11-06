@@ -1,10 +1,14 @@
-package com.cpe.springboot.model;
+package com.cpe.springboot.card.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
+@Entity
 public class CardReference implements Serializable {
 
 	private static final long serialVersionUID = -7059808842444736266L;
+	@Id
 	private Integer id;
 	private String name;
 	private String description;

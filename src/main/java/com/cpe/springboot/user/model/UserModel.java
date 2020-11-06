@@ -1,14 +1,19 @@
-package com.cpe.springboot.model;
+package com.cpe.springboot.user.model;
 
 
+import com.cpe.springboot.card.model.CardModel;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
+@Entity
 public class UserModel implements Serializable {
 
 	private static final long serialVersionUID = 2733795832476568049L;
+	@Id
 	private Integer id;
 	private String login;
 	private String pwd;
@@ -17,7 +22,7 @@ public class UserModel implements Serializable {
 	private String surName;
 	private String email;
 
-	private Set<CardModel> cardList = new HashSet<>();
+	private HashSet<CardModel> cardList = new HashSet<>();
 
 	public UserModel() {
 		this.login = "";
@@ -60,11 +65,11 @@ public class UserModel implements Serializable {
 		this.pwd = pwd;
 	}
 
-	public Set<CardModel> getCardList() {
+	public HashSet<CardModel> getCardList() {
 		return cardList;
 	}
 
-	public void setCardList(Set<CardModel> cardList) {
+	public void setCardList(HashSet<CardModel> cardList) {
 		this.cardList = cardList;
 	}
 

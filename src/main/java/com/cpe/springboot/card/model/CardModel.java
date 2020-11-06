@@ -1,5 +1,13 @@
-package com.cpe.springboot.model;
+package com.cpe.springboot.card.model;
 
+import com.cpe.springboot.store.model.StoreModel;
+import com.cpe.springboot.user.model.UserModel;
+
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class CardModel extends CardReference{
 	private float energy;
 	private float hp;
@@ -7,8 +15,12 @@ public class CardModel extends CardReference{
 	private float attack;
 	private float price;
 
+	@ManyToOne
+	@JoinColumn
 	private UserModel user;
 
+	@ManyToOne
+	@JoinColumn
 	private StoreModel store;
 
 	public CardModel() {
