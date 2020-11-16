@@ -6,9 +6,12 @@ import com.cpe.springboot.user.model.UserModel;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "card_reference")
 public class CardModel extends CardReference{
+
 	private float energy;
 	private float hp;
 	private float defence;

@@ -5,11 +5,13 @@ import com.cpe.springboot.card.model.CardModel;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 
 @Entity
+@Table(name = "user_model")
 public class UserModel implements Serializable {
 
 	private static final long serialVersionUID = 2733795832476568049L;

@@ -4,9 +4,11 @@ import com.cpe.springboot.card.model.CardModel;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.HashSet;
 
 @Entity
+@Table(name = "store_model")
 public class StoreModel {
 
 	@Id
