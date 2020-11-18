@@ -2,18 +2,14 @@ package com.cpe.springboot.store.model;
 
 import com.cpe.springboot.card.model.CardModel;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.HashSet;
 
-@Entity
-@Table(name = "store_model")
 public class StoreModel {
 
-	@Id
 	private Integer id;
 	private String name;
+
+	public StoreModel() { }
 
     private HashSet<CardModel> cardList = new HashSet<>();
 
@@ -42,7 +38,7 @@ public class StoreModel {
 	}
 
 	public void addCard(CardModel card) {
-		card.setStore(this);
+		card.setStore(this.getId());
 		this.cardList.add(card);
 	}
 	

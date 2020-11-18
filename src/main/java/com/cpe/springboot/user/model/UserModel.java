@@ -3,19 +3,15 @@ package com.cpe.springboot.user.model;
 
 import com.cpe.springboot.card.model.CardModel;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
-@Entity
-@Table(name = "user_model")
 public class UserModel implements Serializable {
 
 	private static final long serialVersionUID = 2733795832476568049L;
-	@Id
 	private Integer id;
 	private String login;
 	private String pwd;
@@ -24,7 +20,7 @@ public class UserModel implements Serializable {
 	private String surName;
 	private String email;
 
-	private HashSet<CardModel> cardList = new HashSet<>();
+	private HashSet<Integer> cardList = new HashSet<>();
 
 	public UserModel() {
 		this.login = "";
@@ -67,27 +63,31 @@ public class UserModel implements Serializable {
 		this.pwd = pwd;
 	}
 
-	public HashSet<CardModel> getCardList() {
+	public HashSet<Integer> getCardList() {
 		return cardList;
 	}
 
-	public void setCardList(HashSet<CardModel> cardList) {
+	public void setCardList(HashSet<Integer> cardList) {
 		this.cardList = cardList;
 	}
 
 	public void addAllCardList(Collection<CardModel> cardList) {
-		this.cardList.addAll(cardList);
+		List<Integer> cardListInt = new ArrayList<>();
+		for(CardModel c: cardList) {
+			cardListInt.add(c.getId());
+		}
+		this.cardList.addAll(cardListInt);
 	}
 
 
 	public void addCard(CardModel card) {
-		this.cardList.add(card);
-		card.setUser(this);
+		this.cardList.add(card.getId());
+		card.setUser(this.getId());
 	}
 
 	private boolean checkIfCard(CardModel c){
-		for(CardModel c_c: this.cardList){
-			if(c_c.getId()==c.getId()){
+		for(Integer cardId: this.cardList){
+			if(cardId==c.getId()){
 				return true;
 			}
 		}

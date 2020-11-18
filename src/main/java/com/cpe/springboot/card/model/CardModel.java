@@ -1,44 +1,18 @@
 package com.cpe.springboot.card.model;
 
-import com.cpe.springboot.store.model.StoreModel;
-import com.cpe.springboot.user.model.UserModel;
-
-import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "card_model")
 public class CardModel implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
 	public Integer id;
-	@Column(name = "energy")
 	public float energy;
-	@Column(name = "hp")
 	public float hp;
-	@Column(name = "defence")
 	public float defence;
-	@Column(name = "attack")
 	public float attack;
-	@Column(name = "price")
 	public float price;
-
-	//@ManyToOne(fetch = FetchType.LAZY)
-	//@ManyToOne(cascade = CascadeType.ALL)
-	//@JoinColumn(name = "user_id", nullable = true)
-	@ManyToOne
-	@JoinColumn
-	public UserModel user;
-
-	@ManyToOne
-	@JoinColumn
-	public StoreModel store;
-
-	@ManyToOne
-	@JoinColumn
-	public CardReference cardReference;
+	public int userId;
+	public int storeId;
+	public int cardReferenceId;
 
 	public CardModel() {
 		super();
@@ -95,24 +69,24 @@ public class CardModel implements Serializable {
 		this.price = price;
 	}
 
-	public UserModel getUser() {
-		return user;
+	public int getUser() {
+		return userId;
 	}
 
-	public void setUser(UserModel user) {
-		this.user = user;
+	public void setUser(int userId) {
+		this.userId = userId;
 	}
 
-	public void setStore(StoreModel storeModel) {
-		this.store=storeModel;
+	public void setStore(int storeId) {
+		this.storeId=storeId;
 	}
 
-	public void setCardReference(CardReference cardReference) {
-		this.cardReference=cardReference;
+	public void setCardReference(int cardReferenceId) {
+		this.cardReferenceId=cardReferenceId;
 	}
 
-	public StoreModel getStore() {
-		return store;
+	public int getStore() {
+		return storeId;
 	}
 
 	public float computePrice() {
