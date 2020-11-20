@@ -13,7 +13,7 @@
             <uniqueVersion>false</uniqueVersion>
             <id>CommonModel</id>
             <name>CommonModel</name>
-            <url>https://maven.pkg.github.com/ASI2JAVATHEBEST/CommonModel</url>
+            <url>https://maven.pkg.github.com/ASI2JAVATHEBEST/CommonModel/latest</url>
             <layout>default</layout>
         </repository>
     </distributionManagement>
