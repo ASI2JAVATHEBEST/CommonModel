@@ -8,6 +8,15 @@
     <artifactId>CommonModel</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>CommonModel</id>
+            <name>CommonModel</name>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
