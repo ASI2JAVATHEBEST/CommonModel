@@ -12,7 +12,8 @@ public class CardModel implements Serializable {
 	public float price;
 	public int userId;
 	public int storeId;
-	public int cardReferenceId;
+
+	public CardReference cardReference;
 
 	public CardModel() {
 		super();
@@ -81,8 +82,8 @@ public class CardModel implements Serializable {
 		this.storeId=storeId;
 	}
 
-	public void setCardReference(int cardReferenceId) {
-		this.cardReferenceId=cardReferenceId;
+	public void setCardReference(CardReference cardReference) {
+		this.cardReference=cardReference;
 	}
 
 	public int getStore() {
